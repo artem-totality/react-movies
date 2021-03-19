@@ -19,7 +19,11 @@ class Main extends React.Component {
       .then((responce) => responce.json())
       .then((data) =>
         this.setState({ movies: data.Search || [], loading: false })
-      );
+      )
+      .catch((err) => {
+        console.error(err);
+        this.setState({ movies: [], loading: false });
+      });
   }
 
   handleSearch = (searchText) => {
@@ -29,7 +33,11 @@ class Main extends React.Component {
       .then((responce) => responce.json())
       .then((data) =>
         this.setState({ movies: data.Search || [], loading: false })
-      );
+      )
+      .catch((err) => {
+        console.error(err);
+        this.setState({ movies: [], loading: false });
+      });
   };
 
   render() {
